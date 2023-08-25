@@ -1,7 +1,22 @@
---maven
+
+-- MAVEB JAR
 ./mvnw clean package install -DskipTests
 
+-- DOCKER COMPOSE
 docker-compose up
 docker-compose up -d 
 docker-compose down
 docker-compose -v down
+
+-- DOCKER HUB
+NOT: docker image'i olan containerler için dockerhub push yapacağım.
+javahamitmizrak/techcareer_devops_springboot
+docker login
+docker ps
+docker image ls
+docker image tag blog.jar javahamitmizrak/techcareer_devops_springboot
+docker push javahamitmizrak/techcareer_devops_springboot
+
+-- DOCKER CONTAINER
+docker pull javahamitmizrak/techcareer_devops_springboot
+docker container run -d -p 6363:4444 --name spring_boot_data --rm blog.jar
